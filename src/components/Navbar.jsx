@@ -32,13 +32,14 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <a href="#" className="flex items-center gap-2 shrink-0">
-              <div className="w-9 h-9 bg-red-700 rounded flex items-center justify-center">
-                <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
-                  <path d="M12 2L9.5 8.5H3L8.5 12.5L6 19L12 15L18 19L15.5 12.5L21 8.5H14.5L12 2Z" />
+              <div className="w-10 h-10 bg-red-700 rounded flex items-center justify-center">
+                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+                  <path d="M7 2C5.9 2 5 2.9 5 4V9C5 10.1 5.9 11 7 11H8V20C8 21.1 8.9 22 10 22H14C15.1 22 16 21.1 16 20V11H17C18.1 11 19 10.1 19 9V4C19 2.9 18.1 2 17 2H7Z" />
                 </svg>
               </div>
+
               <span className="font-bold text-lg text-black tracking-tight">
-                Our<span className="text-red-700">Org</span>
+                FB<span className="text-red-700">FI</span>
               </span>
             </a>
 
