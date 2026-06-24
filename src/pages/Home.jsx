@@ -300,105 +300,53 @@ export default function Home() {
       {/* ═══════════════════════════════════════
           HERO — fully responsive two-column
       ══════════════════════════════════════ */}
-      <section
-        id="home"
-        className="relative min-h-screen flex items-center bg-white pt-16"
-      >
-        {/* diagonal red slab — only visible on md+ so mobile gets full-width red header feel */}
-        <div
-          className="absolute inset-0 pointer-events-none hidden md:block"
-          style={{
-            background:
-              "linear-gradient(135deg, #C41E3A 0%, #C41E3A 52%, transparent 52%)",
-          }}
-        />
-        {/* on mobile: top portion is red */}
-        <div
-          className="absolute inset-0 pointer-events-none md:hidden"
-          style={{
-            background:
-              "linear-gradient(180deg, #C41E3A 0%, #C41E3A 55%, transparent 55%)",
-          }}
-        />
+      <section id="home" className="relative min-h-screen flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=2000&q=80"
+            alt="Young boxer training"
+            className="w-full h-full object-cover"
+          />
 
-        {/* gold accent line */}
-        <div className="absolute top-16 left-0 w-full h-1 bg-yellow-600 z-10" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 md:py-20">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            {/* Left — text */}
-            <div className="flex-1 text-center md:text-left order-2 md:order-1">
-              <p
-                className={`text-yellow-400 text-xs font-bold uppercase tracking-[0.25em] mb-4 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
-                style={{ transitionDelay: "100ms" }}
-              >
-                Fight For A Better Future Initiative
-              </p>
-              <h1
-                className={`text-white text-4xl sm:text-5xl lg:text-7xl font-black leading-none mb-6 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}
-                style={{ transitionDelay: "250ms" }}
-              >
-                FIGHT FOR
-                <br />
-                <span className="text-yellow-400">A BETTER</span>
-                <br />
-                FUTURE
-              </h1>
-              <p
-                className={`text-white/80 text-base sm:text-lg max-w-md mx-auto md:mx-0 leading-relaxed mb-8 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
-                style={{ transitionDelay: "400ms" }}
-              >
-                Using boxing as a tool to rehabilitate, educate, and empower
-                vulnerable youth across informal settlements in Kenya.
-              </p>
-              <div
-                className={`flex flex-wrap gap-3 justify-center md:justify-start transition-all duration-700 ${punched ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-                style={{ transitionDelay: "550ms" }}
-              >
-                <a
-                  href="#events"
-                  className="bg-yellow-500 text-black font-bold uppercase tracking-widest text-sm px-6 py-3 rounded hover:bg-yellow-400 transition-colors duration-200"
-                >
-                  June 27 Event →
-                </a>
-                <a
-                  href="#donate"
-                  className="border-2 border-white text-white font-bold uppercase tracking-widest text-sm px-6 py-3 rounded hover:bg-white hover:text-red-700 transition-colors duration-200"
-                >
-                  Donate Now
-                </a>
-              </div>
-            </div>
-
-            {/* Right — boxer illustration */}
-            <div
-              className={`flex-shrink-0 order-1 md:order-2 transition-all duration-1000 ${punched ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
-              style={{ transitionDelay: "300ms" }}
-            >
-              {/* Image slot: swap src for a real photo */}
-              <div className="relative w-56 h-72 sm:w-72 sm:h-96 md:w-80 md:h-[420px] lg:w-96 lg:h-[480px]">
-                {/* If you have a real photo, replace this div with:
-                    <img src="/images/boxer.jpg" alt="Boxer in training" className="w-full h-full object-cover rounded-2xl shadow-2xl" />
-                */}
-                <div className="w-full h-full rounded-2xl overflow-hidden border-2 border-yellow-500/40 shadow-2xl bg-black/10">
-                  <BoxerIllustration />
-                </div>
-                {/* Floating badge */}
-                <div className="absolute -bottom-3 -right-3 bg-yellow-500 text-black rounded-xl px-4 py-2 shadow-lg">
-                  <p className="text-xs font-bold uppercase tracking-widest">
-                    10+ Years
-                  </p>
-                  <p className="text-xs text-black/70">Grassroots Impact</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        {/* scroll cue */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
-          <div className="w-0.5 h-6 bg-gray-400 rounded" />
-          <ChevronDown className="w-4 h-4 text-gray-400" />
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            <p className="text-yellow-400 font-semibold uppercase tracking-[0.2em] mb-4">
+              Fight For A Better Future Initiative
+            </p>
+
+            <h1 className="text-white text-5xl md:text-7xl font-black leading-tight mb-6">
+              Empowering Youth
+              <br />
+              Through Boxing
+            </h1>
+
+            <p className="text-white/90 text-lg md:text-xl max-w-2xl mb-8">
+              Using boxing as a tool to rehabilitate, educate, and empower
+              vulnerable youth across informal settlements in Kenya.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#events"
+                className="bg-[#C41E3A] text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition"
+              >
+                June 27 Event
+              </a>
+
+              <a
+                href="#donate"
+                className="border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition"
+              >
+                Donate Now
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
