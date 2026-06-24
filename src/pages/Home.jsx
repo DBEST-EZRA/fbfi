@@ -1,6 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import {
+  Dumbbell,
+  BookOpen,
+  Briefcase,
+  Shield,
+  Globe,
+  Handshake,
+  TrendingUp,
+  DollarSign,
+  School,
+  Wrench,
+  Users,
+  Tv,
+  Trophy,
+  MapPin,
+  Mail,
+  Check,
+  ChevronDown,
+  Smartphone,
+} from "lucide-react";
 
 /* ── tiny hook: fires once when element enters viewport ── */
 function useInView(options = {}) {
@@ -65,32 +85,32 @@ function FadeUp({ children, delay = 0, className = "" }) {
 
 const objectives = [
   {
-    icon: "🥊",
+    Icon: Dumbbell,
     title: "Rehabilitation",
     desc: "Pulling youth out of drug abuse and criminal activity through structured boxing training.",
   },
   {
-    icon: "📚",
+    Icon: BookOpen,
     title: "Education Support",
     desc: "Facilitating school re-enrollment, fee support, and academic mentorship for vulnerable youth.",
   },
   {
-    icon: "💼",
+    Icon: Briefcase,
     title: "Skills & Employment",
     desc: "Linking programme graduates to vocational training and real job opportunities.",
   },
   {
-    icon: "🏅",
+    Icon: Shield,
     title: "Discipline & Values",
     desc: "Using the ring to build resilience, respect, and positive character in every participant.",
   },
   {
-    icon: "🌍",
+    Icon: Globe,
     title: "Community Advocacy",
     desc: "Championing the inclusion of boxing in schools and policy-level recognition of sport as rehabilitation.",
   },
   {
-    icon: "🤝",
+    Icon: Handshake,
     title: "Partnerships",
     desc: "Building bridges with institutions, sponsors, and media to scale impact across Kenya.",
   },
@@ -115,8 +135,159 @@ const eventItems = [
   "Incentive tokens for participating youth",
 ];
 
+const partnerTypes = [
+  {
+    Icon: DollarSign,
+    title: "Financial Support",
+    desc: "Fund events, equipment, and operational costs.",
+  },
+  {
+    Icon: School,
+    title: "Education Institutions",
+    desc: "Offer scholarships or free slots for programme youth.",
+  },
+  {
+    Icon: Wrench,
+    title: "Skills Training",
+    desc: "Provide vocational training opportunities to graduates.",
+  },
+  {
+    Icon: Users,
+    title: "Employers",
+    desc: "Create employment pathways for programme beneficiaries.",
+  },
+  {
+    Icon: Tv,
+    title: "Media & Content",
+    desc: "Help document and amplify stories of transformation.",
+  },
+  {
+    Icon: Trophy,
+    title: "Boxing Clubs",
+    desc: "Collaborate on training, events, and talent development.",
+  },
+];
+
+/* ── Boxer SVG illustration ── */
+function BoxerIllustration() {
+  return (
+    <svg
+      viewBox="0 0 320 420"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full"
+      aria-label="Boxer in fighting stance"
+    >
+      {/* Background ring glow */}
+      <circle cx="160" cy="210" r="155" fill="rgba(196,30,58,0.08)" />
+      <circle cx="160" cy="210" r="120" fill="rgba(196,30,58,0.06)" />
+
+      {/* Body silhouette — fighter in stance */}
+      {/* Head */}
+      <ellipse cx="175" cy="72" rx="32" ry="36" fill="#1a1a1a" />
+      {/* Neck */}
+      <rect x="163" y="102" width="22" height="18" rx="4" fill="#1a1a1a" />
+
+      {/* Torso */}
+      <path
+        d="M130 118 Q110 130 108 185 L118 220 L200 220 L215 185 Q218 135 195 118 Z"
+        fill="#C41E3A"
+      />
+      {/* Shorts */}
+      <path
+        d="M118 220 L108 300 L148 300 L160 255 L172 300 L212 300 L200 220 Z"
+        fill="#1a1a1a"
+      />
+      {/* Left leg */}
+      <rect x="108" y="298" width="42" height="80" rx="10" fill="#1a1a1a" />
+      {/* Right leg */}
+      <rect x="168" y="298" width="42" height="72" rx="10" fill="#1a1a1a" />
+      {/* Shoes */}
+      <ellipse cx="129" cy="378" rx="24" ry="10" fill="#333" />
+      <ellipse cx="189" cy="370" rx="24" ry="10" fill="#333" />
+
+      {/* Left arm — extended forward (jab) */}
+      <path
+        d="M130 125 Q80 140 55 155 Q48 160 50 168 Q52 176 60 174 Q90 162 130 148 Z"
+        fill="#1a1a1a"
+      />
+      {/* Left glove */}
+      <ellipse cx="48" cy="166" rx="22" ry="17" fill="#C41E3A" />
+      <ellipse cx="48" cy="156" rx="14" ry="10" fill="#a01830" />
+
+      {/* Right arm — guard up */}
+      <path
+        d="M195 125 Q225 110 240 100 Q250 94 255 100 Q260 108 254 115 Q240 122 215 140 Z"
+        fill="#1a1a1a"
+      />
+      {/* Right glove */}
+      <ellipse cx="257" cy="106" rx="22" ry="17" fill="#EAB308" />
+      <ellipse cx="257" cy="96" rx="14" ry="10" fill="#ca8a04" />
+
+      {/* Shorts stripe */}
+      <rect
+        x="108"
+        y="220"
+        width="92"
+        height="8"
+        fill="#C41E3A"
+        opacity="0.6"
+      />
+
+      {/* Head guard / headgear suggestion */}
+      <path
+        d="M148 44 Q175 30 202 44 Q218 62 210 90 Q200 75 175 72 Q152 72 140 90 Q132 62 148 44 Z"
+        fill="#333"
+        opacity="0.5"
+      />
+
+      {/* Motion lines — jab */}
+      <line
+        x1="30"
+        y1="158"
+        x2="10"
+        y2="152"
+        stroke="#C41E3A"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+      <line
+        x1="32"
+        y1="168"
+        x2="8"
+        y2="168"
+        stroke="#C41E3A"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+      <line
+        x1="30"
+        y1="178"
+        x2="12"
+        y2="184"
+        stroke="#C41E3A"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.3"
+      />
+
+      {/* Gold accent ring outline */}
+      <circle
+        cx="160"
+        cy="210"
+        r="155"
+        fill="none"
+        stroke="#EAB308"
+        strokeWidth="1.5"
+        strokeDasharray="8 12"
+        opacity="0.3"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
-  /* hero punch animation state */
   const [punched, setPunched] = useState(false);
   useEffect(() => {
     setTimeout(() => setPunched(true), 400);
@@ -127,89 +298,107 @@ export default function Home() {
       <Navbar />
 
       {/* ═══════════════════════════════════════
-          HERO
+          HERO — fully responsive two-column
       ══════════════════════════════════════ */}
       <section
         id="home"
         className="relative min-h-screen flex items-center bg-white pt-16"
       >
-        {/* diagonal red slab */}
+        {/* diagonal red slab — only visible on md+ so mobile gets full-width red header feel */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none hidden md:block"
           style={{
             background:
-              "linear-gradient(135deg, #C41E3A 0%, #C41E3A 48%, transparent 48%)",
+              "linear-gradient(135deg, #C41E3A 0%, #C41E3A 52%, transparent 52%)",
           }}
         />
+        {/* on mobile: top portion is red */}
+        <div
+          className="absolute inset-0 pointer-events-none md:hidden"
+          style={{
+            background:
+              "linear-gradient(180deg, #C41E3A 0%, #C41E3A 55%, transparent 55%)",
+          }}
+        />
+
         {/* gold accent line */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-yellow-600" />
+        <div className="absolute top-16 left-0 w-full h-1 bg-yellow-600 z-10" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 flex flex-col lg:flex-row items-center gap-12">
-          {/* Left — text */}
-          <div className="flex-1 text-left">
-            <p
-              className={`text-yellow-400 text-xs font-bold uppercase tracking-[0.25em] mb-4 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
-              style={{ transitionDelay: "100ms" }}
-            >
-              Fight For A Better Future Initiative
-            </p>
-            <h1
-              className={`text-white text-5xl sm:text-6xl lg:text-7xl font-black leading-none mb-6 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}
-              style={{ transitionDelay: "250ms" }}
-            >
-              FIGHT FOR
-              <br />
-              <span className="text-yellow-400">A BETTER</span>
-              <br />
-              FUTURE
-            </h1>
-            <p
-              className={`text-white/80 text-lg max-w-md leading-relaxed mb-8 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
-              style={{ transitionDelay: "400ms" }}
-            >
-              Using boxing as a tool to rehabilitate, educate, and empower
-              vulnerable youth across informal settlements in Kenya.
-            </p>
-            <div
-              className={`flex flex-wrap gap-3 transition-all duration-700 ${punched ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ transitionDelay: "550ms" }}
-            >
-              <a
-                href="#events"
-                className="bg-yellow-500 text-black font-bold uppercase tracking-widest text-sm px-6 py-3 rounded hover:bg-yellow-400 transition-colors duration-200"
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 md:py-20">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            {/* Left — text */}
+            <div className="flex-1 text-center md:text-left order-2 md:order-1">
+              <p
+                className={`text-yellow-400 text-xs font-bold uppercase tracking-[0.25em] mb-4 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+                style={{ transitionDelay: "100ms" }}
               >
-                June 27 Event →
-              </a>
-              <a
-                href="#donate"
-                className="border-2 border-white text-white font-bold uppercase tracking-widest text-sm px-6 py-3 rounded hover:bg-white hover:text-red-700 transition-colors duration-200"
+                Fight For A Better Future Initiative
+              </p>
+              <h1
+                className={`text-white text-4xl sm:text-5xl lg:text-7xl font-black leading-none mb-6 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}
+                style={{ transitionDelay: "250ms" }}
               >
-                Donate Now
-              </a>
+                FIGHT FOR
+                <br />
+                <span className="text-yellow-400">A BETTER</span>
+                <br />
+                FUTURE
+              </h1>
+              <p
+                className={`text-white/80 text-base sm:text-lg max-w-md mx-auto md:mx-0 leading-relaxed mb-8 transition-all duration-700 ${punched ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+                style={{ transitionDelay: "400ms" }}
+              >
+                Using boxing as a tool to rehabilitate, educate, and empower
+                vulnerable youth across informal settlements in Kenya.
+              </p>
+              <div
+                className={`flex flex-wrap gap-3 justify-center md:justify-start transition-all duration-700 ${punched ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                style={{ transitionDelay: "550ms" }}
+              >
+                <a
+                  href="#events"
+                  className="bg-yellow-500 text-black font-bold uppercase tracking-widest text-sm px-6 py-3 rounded hover:bg-yellow-400 transition-colors duration-200"
+                >
+                  June 27 Event →
+                </a>
+                <a
+                  href="#donate"
+                  className="border-2 border-white text-white font-bold uppercase tracking-widest text-sm px-6 py-3 rounded hover:bg-white hover:text-red-700 transition-colors duration-200"
+                >
+                  Donate Now
+                </a>
+              </div>
             </div>
-          </div>
 
-          {/* Right — gloves graphic */}
-          <div
-            className={`flex-shrink-0 transition-all duration-1000 ${punched ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
-            style={{ transitionDelay: "300ms" }}
-          >
-            <div className="w-56 h-56 sm:w-72 sm:h-72 bg-white/10 rounded-full border-4 border-yellow-500/40 flex items-center justify-center shadow-2xl">
-              <span
-                className="text-8xl sm:text-9xl select-none"
-                role="img"
-                aria-label="boxing glove"
-              >
-                🥊
-              </span>
+            {/* Right — boxer illustration */}
+            <div
+              className={`flex-shrink-0 order-1 md:order-2 transition-all duration-1000 ${punched ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
+              style={{ transitionDelay: "300ms" }}
+            >
+              {/* Image slot: swap src for a real photo */}
+              <div className="relative w-56 h-72 sm:w-72 sm:h-96 md:w-80 md:h-[420px] lg:w-96 lg:h-[480px]">
+                {/* If you have a real photo, replace this div with:
+                    <img src="/images/boxer.jpg" alt="Boxer in training" className="w-full h-full object-cover rounded-2xl shadow-2xl" />
+                */}
+                <div className="w-full h-full rounded-2xl overflow-hidden border-2 border-yellow-500/40 shadow-2xl bg-black/10">
+                  <BoxerIllustration />
+                </div>
+                {/* Floating badge */}
+                <div className="absolute -bottom-3 -right-3 bg-yellow-500 text-black rounded-xl px-4 py-2 shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-widest">
+                    10+ Years
+                  </p>
+                  <p className="text-xs text-black/70">Grassroots Impact</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
-          <div className="w-0.5 h-8 bg-gray-400 rounded" />
-          <div className="w-2 h-2 rounded-full bg-gray-400" />
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
+          <div className="w-0.5 h-6 bg-gray-400 rounded" />
+          <ChevronDown className="w-4 h-4 text-gray-400" />
         </div>
       </section>
 
@@ -272,12 +461,10 @@ export default function Home() {
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <span className="mt-1 w-4 h-4 rounded-full bg-red-700 flex items-center justify-center shrink-0">
-                      <svg
-                        className="w-2.5 h-2.5 fill-white"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-                      </svg>
+                      <Check
+                        className="w-2.5 h-2.5 text-white"
+                        strokeWidth={3}
+                      />
                     </span>
                     <p className="text-gray-700 text-sm">{item}</p>
                   </div>
@@ -335,10 +522,12 @@ export default function Home() {
             </h2>
           </FadeUp>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {objectives.map(({ icon, title, desc }, i) => (
+            {objectives.map(({ Icon, title, desc }, i) => (
               <FadeUp key={title} delay={i * 80}>
                 <div className="group bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-red-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                  <div className="text-4xl mb-4">{icon}</div>
+                  <div className="w-10 h-10 rounded-lg bg-red-700/10 flex items-center justify-center mb-4 group-hover:bg-red-700 transition-colors duration-300">
+                    <Icon className="w-5 h-5 text-red-700 group-hover:text-white transition-colors duration-300" />
+                  </div>
                   <h3 className="font-black text-lg mb-2 group-hover:text-red-700 transition-colors">
                     {title}
                   </h3>
@@ -366,7 +555,6 @@ export default function Home() {
             </h2>
           </FadeUp>
           <div className="relative">
-            {/* vertical line */}
             <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-0.5 bg-yellow-600/30" />
             <div className="space-y-10">
               {timeline.map(({ year, label }, i) => (
@@ -423,20 +611,34 @@ export default function Home() {
                     <br />
                     Boxing Exhibition
                   </h3>
-                  <div className="flex flex-col gap-2 my-6 text-white/80 text-sm">
-                    <p>
-                      📅 <strong className="text-white">27th June 2026</strong>
-                    </p>
-                    <p>
-                      📍{" "}
-                      <strong className="text-white">
-                        Maasai Mall – Tumaini, Ongata Rongai
-                      </strong>
-                    </p>
-                    <p>
-                      🎯 <strong className="text-white">500+ youth</strong>{" "}
-                      directly engaged
-                    </p>
+                  <div className="flex flex-col gap-3 my-6 text-white/80 text-sm">
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                        <TrendingUp className="w-3 h-3 text-yellow-400" />
+                      </div>
+                      <p>
+                        <strong className="text-white">27th June 2026</strong>
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                        <MapPin className="w-3 h-3 text-yellow-400" />
+                      </div>
+                      <p>
+                        <strong className="text-white">
+                          Maasai Mall – Tumaini, Ongata Rongai
+                        </strong>
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                        <Users className="w-3 h-3 text-yellow-400" />
+                      </div>
+                      <p>
+                        <strong className="text-white">500+ youth</strong>{" "}
+                        directly engaged
+                      </p>
+                    </div>
                   </div>
                   <a
                     href="#donate"
@@ -457,9 +659,10 @@ export default function Home() {
                         key={item}
                         className="flex items-start gap-3 text-white/90 text-sm"
                       >
-                        <span className="mt-0.5 text-yellow-500 font-bold">
-                          ✓
-                        </span>
+                        <Check
+                          className="w-4 h-4 mt-0.5 text-yellow-500 shrink-0"
+                          strokeWidth={3}
+                        />
                         {item}
                       </li>
                     ))}
@@ -480,7 +683,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════
-          DONATE
+          DONATE — M-Pesa green card
       ══════════════════════════════════════ */}
       <section id="donate" className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -498,33 +701,58 @@ export default function Home() {
             </p>
           </FadeUp>
           <FadeUp delay={100}>
-            <div className="inline-block bg-white rounded-2xl shadow-lg border border-gray-100 p-8 sm:p-12 text-left w-full max-w-sm mx-auto">
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5 text-center">
-                Donate via M-Pesa
-              </p>
-              <div className="space-y-4 mb-6">
-                <div className="bg-gray-50 rounded-lg p-4 text-center">
-                  <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">
-                    Paybill Number
-                  </p>
-                  <p className="text-4xl font-black tracking-widest text-black">
-                    522533
-                  </p>
+            <div className="inline-block w-full max-w-sm mx-auto">
+              {/* M-Pesa card — green themed */}
+              <div
+                className="rounded-2xl shadow-xl overflow-hidden text-left"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #00A651 0%, #007a3d 100%)",
+                }}
+              >
+                {/* Card header */}
+                <div className="px-8 pt-7 pb-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-white/70 text-[10px] font-bold uppercase tracking-widest">
+                      Pay via
+                    </p>
+                    <p className="text-white text-2xl font-black tracking-tight leading-none">
+                      M-PESA
+                    </p>
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <Smartphone className="w-5 h-5 text-white" />
+                  </div>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-4 text-center">
-                  <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">
-                    Account Number
-                  </p>
-                  <p className="text-4xl font-black tracking-widest text-black">
-                    7868187
+
+                {/* Divider */}
+                <div className="mx-8 h-px bg-white/20 mb-5" />
+
+                {/* Fields */}
+                <div className="px-8 pb-8 space-y-4">
+                  <div className="bg-white/15 rounded-xl p-4">
+                    <p className="text-white/70 text-[10px] font-bold uppercase tracking-wider mb-1">
+                      Paybill Number
+                    </p>
+                    <p className="text-white text-3xl font-black tracking-widest">
+                      522533
+                    </p>
+                  </div>
+                  <div className="bg-white/15 rounded-xl p-4">
+                    <p className="text-white/70 text-[10px] font-bold uppercase tracking-wider mb-1">
+                      Account Number
+                    </p>
+                    <p className="text-white text-3xl font-black tracking-widest">
+                      7868187
+                    </p>
+                  </div>
+                  <p className="text-white/60 text-xs text-center leading-relaxed pt-1">
+                    Currently using Ongata Rongai Talent Boxing Club account
+                    during CBO registration. Official account details will be
+                    shared upon completion.
                   </p>
                 </div>
               </div>
-              <p className="text-gray-400 text-xs text-center leading-relaxed">
-                Currently using Ongata Rongai Talent Boxing Club account during
-                CBO registration. Official account details will be shared upon
-                completion.
-              </p>
             </div>
           </FadeUp>
         </div>
@@ -549,41 +777,12 @@ export default function Home() {
             </p>
           </FadeUp>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left mb-12">
-            {[
-              {
-                icon: "💰",
-                title: "Financial Support",
-                desc: "Fund events, equipment, and operational costs.",
-              },
-              {
-                icon: "🏫",
-                title: "Education Institutions",
-                desc: "Offer scholarships or free slots for programme youth.",
-              },
-              {
-                icon: "🔧",
-                title: "Skills Training",
-                desc: "Provide vocational training opportunities to graduates.",
-              },
-              {
-                icon: "💼",
-                title: "Employers",
-                desc: "Create employment pathways for programme beneficiaries.",
-              },
-              {
-                icon: "📱",
-                title: "Media & Content",
-                desc: "Help document and amplify stories of transformation.",
-              },
-              {
-                icon: "🥊",
-                title: "Boxing Clubs",
-                desc: "Collaborate on training, events, and talent development.",
-              },
-            ].map(({ icon, title, desc }, i) => (
+            {partnerTypes.map(({ Icon, title, desc }, i) => (
               <FadeUp key={title} delay={i * 70}>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-yellow-500/50 hover:bg-white/10 transition-all duration-300">
-                  <div className="text-3xl mb-3">{icon}</div>
+                <div className="group bg-white/5 border border-white/10 rounded-xl p-5 hover:border-yellow-500/50 hover:bg-white/10 transition-all duration-300">
+                  <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center mb-3 group-hover:bg-yellow-500 transition-colors duration-300">
+                    <Icon className="w-4 h-4 text-gray-400 group-hover:text-black transition-colors duration-300" />
+                  </div>
                   <h4 className="font-bold text-white mb-1">{title}</h4>
                   <p className="text-gray-400 text-sm">{desc}</p>
                 </div>
@@ -620,20 +819,23 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:info@fbfi.org"
-                className="bg-red-700 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded hover:bg-black transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 bg-red-700 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded hover:bg-black transition-colors duration-200"
               >
-                ✉️ Email Us
+                <Mail className="w-4 h-4" />
+                Email Us
               </a>
               <a
                 href="#donate"
-                className="border-2 border-red-700 text-red-700 font-bold uppercase tracking-widest text-sm px-8 py-4 rounded hover:bg-red-700 hover:text-white transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 border-2 border-red-700 text-red-700 font-bold uppercase tracking-widest text-sm px-8 py-4 rounded hover:bg-red-700 hover:text-white transition-colors duration-200"
               >
-                🥊 Donate Now
+                <Dumbbell className="w-4 h-4" />
+                Donate Now
               </a>
             </div>
-            <p className="text-gray-400 text-sm mt-6">
-              📍 Ongata Rongai, Kenya
-            </p>
+            <div className="flex items-center justify-center gap-1.5 text-gray-400 text-sm mt-6">
+              <MapPin className="w-4 h-4" />
+              <span>Ongata Rongai, Kenya</span>
+            </div>
           </FadeUp>
         </div>
       </section>
